@@ -158,6 +158,8 @@ cython_debug/
 .vscode/
 *:Zone.Identifier
 
+# GitHub Sync with DevContainer
+.github/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
