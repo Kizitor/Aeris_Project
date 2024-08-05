@@ -29,7 +29,7 @@ This project is to display common statistics (mean, standard deviation, and sum)
     - get-sum: Returns the sum of the concentration
     - get-image: Returns 3D scatter plot visualization of the concentration
 
-    To access these endpoints, go to your browser and go to the localhost URL ````http://127.0.0.1/\<desired_endpoint>````
+    To access these endpoints, go to your browser and go to the localhost URL ````http://127.0.0.1/<desired_endpoint>````
 
 6. An alternative to this method that still takes advantage of Docker is to use a DevContainer (requires VSCode). If you use the preconfigured DevContainer in the project, build and open it. Then run this in the DevContainer: ```bash ./start.sh``` 
 
