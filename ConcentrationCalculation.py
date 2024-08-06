@@ -36,7 +36,7 @@ class ConcentrationCalculation:
             logger.info(self.__conMean)
         return self.__conMean
 
-    # For Standard Deviation of Concentration
+    # For Standard Deviation (Pop) of Concentration 
     def calcStdDev(self):
         if self.__conStd is None:
             self.__conStd = np.std(self.__col_con)
