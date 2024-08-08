@@ -23,7 +23,7 @@ def get_std_deviation():
 # Returns JSON of Sum Value
 @app.get('/get-sum')
 def get_sum():
-    return jsonify({'sum': CC.calcStdDev()})
+    return jsonify({'sum': CC.calcSum()})
 
 # Returns a PNG of Concentration
 @app.get('/get-image')
