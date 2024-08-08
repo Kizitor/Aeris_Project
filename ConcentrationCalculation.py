@@ -9,7 +9,7 @@ import logging
 Calculates the Needed values from the CSV.
 """
 
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 class ConcentrationCalculation:
     def __init__(self) -> None:
@@ -18,14 +18,35 @@ class ConcentrationCalculation:
         self.__conSum = None
 
         # Reads in Environment Variable for CSV path
-        self.__fn = os.environ.get('CON_CSV') 
-        self.__df_con = pd.read_csv(self.__fn)
+        try:
+            self.__fn = os.environ.get('CON_CSV')
+        except KeyError:
+            logger.error("Environment Variable not found")
+            raise
+        try:
+            self.__df_con = pd.read_csv(self.__fn)
+        except FileNotFoundError:
+            logger.error(f"File not found: {self.__fn}")
+            raise
+        except pd.errors.EmptyDataError:
+            logger.error(f"No data: {self.__fn}")
+            raise
+        except pd.errors.ParserError:
+            logger.error(f"Parsing error: {self.__fn}")
+            raise
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+            raise
 
         # Segments data based on column names
-        self.__df_x = self.__df_con['x']
-        self.__df_y = self.__df_con['y']
-        self.__df_z = self.__df_con['z']
-        self.__col_con = self.__df_con['concentration']
+        try:
+            self.__df_x = self.__df_con['x']
+            self.__df_y = self.__df_con['y']
+            self.__df_z = self.__df_con['z']
+            self.__col_con = self.__df_con['concentration']
+        except KeyError as e:
+            logger.error(f"Missing column in CSV: {e}")
+            raise
 
         logger.info("Entered Constructor")
     
