@@ -16,11 +16,11 @@ This project is to display common statistics (mean, standard deviation, and sum)
 
 3. Build the image from the terminal after navigating to the cloned git repo's top level folder. **(On Windows and MacOS, open Docker Desktop and use the following docker related commands in its terminal. Linux can use any terminal.)**
 
-    - ```docker build -t Aeris_Image . ```
+    - ```docker build -t aeris_image . ```
 
 4. Run the container
 
-    - ```docker run -it -p 80:80 Aeris_Image```
+    - ```docker run -it -p 80:80 aeris_image```
 
 5. With the container running, the following endpoints are available to you:
 
